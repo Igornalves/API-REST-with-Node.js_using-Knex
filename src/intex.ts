@@ -1,12 +1,21 @@
-interface User {
-    anivesario: number
-}
+import fastify from 'fastify'
 
-function calculoDeIdade(user: User) {
-    return new Date().getFullYear() - user.anivesario
-}
+const app = fastify()
 
-calculoDeIdade({
-    anivesario:2004
-});
+// base da aplicacao
 
+// principais metodos: GET, POST, PUT, PATCH, DELETE
+
+// http://localhost:3333/hello
+
+app.get('/hello', () => {
+  return 'hello node.js'
+})
+
+app
+  .listen({
+    port: 3333,
+  })
+  .then(() => {
+    console.log('HTTP server running !')
+  })
