@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/intex.ts",
-    "lint": "eslint src --ext .ts --fix"
+    "lint": "eslint src --ext .ts --fix",
+    "init_knex":"knex init",
+    "init_knex-ts":"knex init -x ts",
+    "migrate_knex":"knex migrate:make create-documents -x ts",
+    "r_knex": "knex migrate:latest",
+    "back_knex": "knex migrate:rollback"
   },
   "keywords": [],
   "author": "",
