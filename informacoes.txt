@@ -91,5 +91,4 @@ usar no terminal: npm run dev
 
 npm install dotenv
 
-
-
+npm install zod 

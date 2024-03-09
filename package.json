@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/intex.ts",
+    "dev": "tsx watch src/server.ts",
     "lint": "eslint src --ext .ts --fix",
     "init_knex": "knex init",
     "init_knex-ts": "knex init -x ts",
@@ -26,6 +26,7 @@
     "dotenv": "^16.4.5",
     "fastify": "^4.26.2",
     "knex": "^3.1.0",
-    "pg": "^8.11.3"
+    "pg": "^8.11.3",
+    "zod": "^3.22.4"
   }
 }
