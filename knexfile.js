@@ -3,47 +3,49 @@
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
+
+// Você também pode usar uma função assíncrona para obter detalhes de conexão para sua configuração. Isso é útil quando você precisa buscar credenciais de um local seguro como o cofre.
+
 module.exports = {
   development: {
-    client: 'sqlite3',
+    client: 'postgresql',
     connection: {
-      filename: './tmp/app.db',
+      database: 'sistema_de_vendas',
+      user: 'igorn',
+      password: '08901',
     },
     migrations: {
-      extension: 'ts',
-      directory: './tmp/migrations',
+      extension: 'js',
+      directory: './migrations',
+      tableName: 'knex_migrations_users',
     },
   },
 
   staging: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user: 'username',
-      password: 'password',
+      database: 'sistema_de_vendas',
+      user: 'igorn',
+      password: '08901',
     },
     pool: {
       min: 2,
       max: 10,
     },
     migrations: {
-      tableName: 'knex_migrations',
+      tableName: 'knex_migrations_users',
     },
   },
 
   production: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user: 'username',
-      password: 'password',
-    },
-    pool: {
-      min: 2,
-      max: 10,
+      database: 'sistema_de_vendas',
+      user: 'igorn',
+      password: '08901',
     },
     migrations: {
-      tableName: 'knex_migrations',
+      tableName: 'knex_migrations_users',
     },
   },
 }

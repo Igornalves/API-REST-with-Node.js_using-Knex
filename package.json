@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "tsx watch src/intex.ts",
     "lint": "eslint src --ext .ts --fix",
-    "init_knex":"knex init",
-    "init_knex-ts":"knex init -x ts",
-    "migrate_knex":"knex migrate:make create-documents",
+    "init_knex": "knex init",
+    "init_knex-ts": "knex init -x ts",
+    "migrate_knex": "knex migrate:make create-migrations",
     "r_knex": "knex migrate:latest",
     "back_knex": "knex migrate:rollback"
   },
@@ -25,7 +25,6 @@
   "dependencies": {
     "fastify": "^4.26.2",
     "knex": "^3.1.0",
-    "pg": "^8.11.3",
-    "sqlite3": "^5.1.7"
+    "pg": "^8.11.3"
   }
 }
