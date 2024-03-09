@@ -87,3 +87,9 @@ usar no terminal: npm run dev
  npx knex migrate:latest
 
 --no-warning --loader tsx ./node_modules/.bin/knex
+
+
+npm install dotenv
+
+
+

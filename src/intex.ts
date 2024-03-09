@@ -30,11 +30,12 @@ app.get('/produtos', async () => {
 app.get('/inserindo', async () => {
   const inserindo = await knex('produtos_eletronicos')
     .insert({
-      nome_produto: 'projetor portatil',
+      nome_produto: 'caixa de som portatil',
       categoria: 'eletronico',
-      descricao: 'projeto com wifi 6.0 e BT 5.0 inteligente e full HD',
-      quantidade_estoque: 300,
-      preco: 440,
+      descricao:
+        'caixa com fio e BT 5.0 inteligente mais otima qualidade de som',
+      quantidade_estoque: 120,
+      preco: 140,
     })
     .returning('*')
 

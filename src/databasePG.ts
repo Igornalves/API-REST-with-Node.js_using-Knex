@@ -1,14 +1,20 @@
 /* eslint-disable prettier/prettier */
+import 'dotenv/config'
 import { knex as setupKnex } from 'knex'
+
+if (!process.env.DATABASE_URL) {
+  throw new Error("DATABASE_URL nao possui uma String URL indicando o caminho para o banco");
+}
 
 export const knex = setupKnex({
   client: 'pg',
   connection: {
-    host: '127.0.0.1',
-    port: 5432,
-    user: 'igorn',
-    password: '08901',
-    database: 'sistema_de_vendas',
+    filename: process.env.DATABASE_URL
+    // host: '127.0.0.1',
+    // port: 5432,
+    // user: 'igorn',
+    // password: '08901',
+    // database: 'sistema_de_vendas',
   },
   // outra forma de fazer a conexao com o banco de dados
   // connection: 'postgres://igorn:08901@localhost:5432/sistema_de_vendas',
