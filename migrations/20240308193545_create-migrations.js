@@ -18,4 +18,4 @@ exports.down = function (knex) {
     return knex.schema.dropTable('transacoes')
 }
 
-exports.config = { transaction: false };
+exports.config = { transaction: true }

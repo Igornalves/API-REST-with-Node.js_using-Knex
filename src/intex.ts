@@ -45,6 +45,24 @@ app.get('/inserindo', async () => {
   return inserindo
 })
 
+app.get('/migration', async () => {
+  const consultandoMigrations = await knex('knex_migrations_users').select('*')
+
+  console.log('consulta liberada da migration !!!!')
+
+  return consultandoMigrations
+})
+
+app.get('/migration2', async () => {
+  const consultandoMigrations2 = await knex(
+    'knex_migrations_users_lock',
+  ).select('*')
+
+  console.log('consulta liberada da migration2 !!!!')
+
+  return consultandoMigrations2
+})
+
 app
   .listen({
     port: 3333,
