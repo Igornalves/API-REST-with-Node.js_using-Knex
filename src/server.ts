@@ -1,5 +1,6 @@
 import fastify from 'fastify'
 import { knex } from './databasePG'
+import { env } from './env/intex'
 
 const app = fastify()
 
@@ -66,7 +67,7 @@ app.get('/migration2', async () => {
 
 app
   .listen({
-    port: 3333,
+    port: env.PORT,
   })
   .then(() => {
     console.log('HTTP server running !')

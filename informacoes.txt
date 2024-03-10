@@ -1,49 +1,54 @@
-comando node.js no terminal 
-
-npm init -y // comando de inicio de projeto com node.js 
-
-npm i -D typescript // comando de instalacao typescript
-
-npx tsc --init // comando de instalacao de config typescript
-
-.\node_modules\.bin\tsc // comando semelhante ao anterior porem de forma diferente
-
-npx tsc .\src\intex.ts  // comando de conversao para javascript o codigo typescript 
-
-npm install fastify // instalando a biblioteca 
-
-npm install -D @types/node // instalando o type de config para convesao de codigo 
-
-npm install tsx -D // usa so para desenvolvimento 
-
-// mais em producao o mais indicado e roda o java script mesmo 
-
-npx tsx .\src\intex.ts // xeecutando o codigo typescript 
-
-http localhost:3333/hello //rodando ele no httpe no terminal 
+  comando node.js no terminal 
 
 
-colocando no package.json 
+  npm init -y // comando de inicio de projeto com node.js 
 
-"scripts": {
+  npm i -D typescript // comando de instalacao typescript
+
+  npx tsc --init // comando de instalacao de config typescript
+
+  .\node_modules\.bin\tsc // comando semelhante ao anterior porem de forma diferente
+
+  npx tsc .\src\intex.ts  // comando de conversao para javascript o codigo typescript 
+
+  npm install fastify // instalando a biblioteca 
+
+  npm install -D @types/node // instalando o type de config para convesao de codigo 
+
+  npm install tsx -D // usa so para desenvolvimento 
+
+
+  // mais em producao o mais indicado e roda o java script mesmo 
+
+
+  npx tsx .\src\intex.ts // executando o codigo typescript 
+
+  http localhost:3333/hello // rodando ele no httpe no terminal 
+
+
+  colocando no package.json 
+
+  "scripts": {
     "dev": "tsx watch src/intex.ts"
   },
+  
 
-usar no terminal: npm run dev 
+  usar no terminal: npm run dev
 
-// para roda o codigo typescript e estara observando a mudanca de codigo no intex
 
- npm i eslint @rocketseat/eslint-config -D
+  // para roda o codigo typescript e estara observando a mudanca de codigo no intex
 
- ou este
+  npm i eslint @rocketseat/eslint-config -D
 
-  npm i eslint -D //instalando para corrigir o codigo 
+  ou este
 
- npm run lint // rodando o codigo para ver se tem erros 
+  npm i eslint -D // instalando para corrigir o codigo 
 
- cria essa parte se no seu settings.json do vs.code nao estiver rodando 
+  npm run lint // rodando o codigo para ver se tem erros 
 
- "editor.codeActionsOnSave": {
+  cria essa parte se no seu settings.json do vs.code nao estiver rodando 
+
+  "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
   "eslint.validate": [
@@ -52,43 +57,34 @@ usar no terminal: npm run dev
     "graphql"
   ],
 
- npm list
+  npm list
 
- npm list -g
+  npm list -g
 
- client: 'pg',
+  client: 'pg',
   connection: 'postgres://igorn:08901@localhost:5432/sistema_de_vendas',
   searchPath: ['knex', 'public'],
 
+  host: '127.0.0.1',
+  port: 5432,
+  user: 'igorn',
+  password: '08901',
+  database: 'sistema_de_vendas',
+
   npx knex -h
 
-  init [options]                          Create a fresh knexfile.
-  migrate:make [options] <name>           Create a named migration file.
-  migrate:latest [options]                Run all migrations that have not yet been run.
-  migrate:up [<name>]                     Run the next or the specified migration that has not yet been run.
-  migrate:rollback [options]              Rollback the last batch of migrations performed.
-  migrate:down [<name>]                   Undo the last or the specified migration that was already run.
-  migrate:currentVersion                  View the current version for the migration.
-  migrate:list|migrate:status             List all migrations files with status.
-  migrate:unlock                          Forcibly unlocks the migrations lock table.
-  seed:make [options] <name>              Create a named seed file.
-  seed:run [options]                      Run seed files.
-  help [command]                  display help for command
+  npx knex init 
 
+  ou 
 
- npx knex init 
+  npx knex init -x ts
+    
+  npx knex migrate:make create-documents -x ts
 
- ou 
+  npx knex migrate:latest
 
- npx knex init -x ts
-  
- npx knex migrate:make create-documents -x ts
+  --no-warning --loader tsx ./node_modules/.bin/knex
 
- npx knex migrate:latest
+  npm install dotenv
 
---no-warning --loader tsx ./node_modules/.bin/knex
-
-
-npm install dotenv
-
-npm install zod 
+  npm install zod 
