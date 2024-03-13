@@ -88,3 +88,8 @@
   npm install dotenv
 
   npm install zod 
+
+  
+// base da aplicacao
+// principais metodos: GET, POST, PUT, PATCH, DELETE
+// http://localhost:3333/hello

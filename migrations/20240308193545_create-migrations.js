@@ -7,6 +7,8 @@ exports.up = function (knex) {
     return knex.schema.createTable('transacoes', (table) => {
         table.uuid('id').primary()
         table.text('titulo')
+        table.decimal('amount', 10, 2).notNullable()
+        table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable()
     })
 }
 
