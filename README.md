@@ -553,6 +553,8 @@ trazendo Exemplo de codigo
   <img align="center" alt="HTML5"  width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg">
 </div>
 
+<br>
+
  é um arquivo de configuração usado para especificar quais arquivos e diretórios o Git deve ignorar ao rastrear as alterações em um repositório Git. 
  
  Isso significa que os arquivos e diretórios listados no .gitignore não serão incluídos nas operações de git add e git commit, tornando-os essencialmente invisíveis para o Git.
