@@ -11,13 +11,12 @@ exports.up = function (knex) {
         table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable()
     })
 }
-
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
 exports.down = function (knex) {
-    return knex.schema.dropTable('transacoes')
+    return knex.schema.dropTable('')
 }
 
 exports.config = { transaction: true }

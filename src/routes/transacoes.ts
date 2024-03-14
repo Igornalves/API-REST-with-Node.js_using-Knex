@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { FastifyInstance } from "fastify"
-import { z } from 'zod'
+import { z } from 'zod' 
 import { randomUUID } from 'node:crypto'
 import { knex } from "../databases/databaseConnection"
 
@@ -13,20 +13,22 @@ export async function transacoesMaisValidacao(app: FastifyInstance) {
     app.post('/transacao', async (request, replay) => {
 
         const criandoTransacoesNoBodySchema = z.object({
-            title: z.string(),
+            titulo: z.string(),
             amount: z.number(),
             type: z.enum(['credito', 'debito']),
         })
 
-        const { title, amount, type } = criandoTransacoesNoBodySchema.parse(
+        const { titulo, amount, type } = criandoTransacoesNoBodySchema.parse(
             request.body,
         )
 
         await knex('transacoes').insert({
             id: randomUUID(),
-            title,
+            titulo,
             amount: type === 'credito' ? amount : amount * -1,
         })
+
+        console.log('migracao feita com sucesso !!!!')
 
         return replay.status(201).send('transacao enviada com suceesso !!!')
 

@@ -28,19 +28,29 @@ export async function ConsultadoTabelas(app: FastifyInstance) {
 
     app.get('/migration', async () => {
 
-        const consultandoMigrations = await knex('knex_migrations_users').select('*')
+        const consultandoMigrations = await knex('migracoes_transacoes').select('*')
 
-        console.log('consulta liberada da migration !!!!')
+        console.log('consulta liberada da migration1 !!!!')
 
         return consultandoMigrations
     })
 
     app.get('/migration2', async () => {
         const consultandoMigrations2 = await knex(
-            'knex_migrations_users_lock',
+            'migracoes_transacoes_lock',
         ).select('*')
 
         console.log('consulta liberada da migration2 !!!!')
+
+        return consultandoMigrations2
+    })
+
+    app.get('/migration3', async () => {
+        const consultandoMigrations2 = await knex(
+            'transacoes',
+        ).select('*')
+
+        console.log('consulta liberada da migration3 !!!!')
 
         return consultandoMigrations2
     })
