@@ -1,12 +1,20 @@
 /* eslint-disable prettier/prettier */
-import { FastifyInstance } from "fastify"
-import { z } from 'zod' 
-import { randomUUID } from 'node:crypto'
-import { knex } from "../databases/databaseConnection"
+/* eslint-disable spaced-comment */
+/* eslint-disable prettier/prettier */
+
+import { FastifyInstance } from "fastify" //interface que define a estrutura  esperada de uma instância do Fastify, fornecer informações sobre a estrutura esperada dessa instância.
+
+import { z } from 'zod' //biblioteca em TypeScript que fornece uma forma simples e eficiente de definir e validar esquemas de dados.
+
+import { randomUUID } from 'node:crypto'// permite gerar identificadores únicos universalmente (UUIDs) de forma aleatória e segura.
+
+import { knex } from "../databases/databaseConnection" //importando o arquivo de conexao
 
 // request Body: Https protocolo
 
-export async function transacoesMaisValidacao(app: FastifyInstance) {
+// fazendo um funcao asincrona com um parametro que recebe a instancia fastify para transacao
+
+export async function transacoesMaisValidacao(app: FastifyInstance)  {
 
     // {titulo, valor da transacao, tipo: credito ou debito}
 

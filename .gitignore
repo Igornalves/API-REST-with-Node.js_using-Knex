@@ -1,4 +1,12 @@
+
+# Diretórios de dependências
 node_modules
+
+# Diretórios temporario de arquivos
 tmp
+
+# Arquivos de ambiente locais
 .env
+
+# arquivo com dados sensiveis para conexao com banco de dados 
 knexfile.js
