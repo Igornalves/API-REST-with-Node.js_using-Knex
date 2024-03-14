@@ -35,6 +35,12 @@ contruir conhcimento em determinadas coisas existentes no node.js e tambem do Ty
 
 # Comandos para Estruturacao Basica do Projeto no Terminal
 
+<div style="display: inline_block"align="center" >
+  <img align="center" alt="HTML5"  width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/powershell/powershell-original.svg">
+</div>
+
+<br>
+
 comando que é usado para inicializar um novo projeto npm de forma rápida e automática, sem a necessidade de responder a perguntas interativas:
 ```javascript
 npm init -y
@@ -272,6 +278,14 @@ npm install dotenv
 
 # Conexão com o Banco de Dados 
 
+<div style="display: inline_block"align="center" >
+  <img align="center" alt="HTML5"  width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg">
+  <img align="center" alt="HTML5"  width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg">
+  <img align="center" alt="HTML5"  width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg">
+</div>
+
+<br>
+
 informações de conexão para um banco de dados PostgreSQL.
 
 - **host:** O endereço IP ou nome de host do servidor onde o banco de dados PostgreSQL está sendo executado. Neste caso, está configurado como IP, que é o endereço localhost.
@@ -311,6 +325,12 @@ connection: 'postgres://igorn:08901@localhost:5432/sistema_de_vendas',
 <br>
 
 # Metodos HTTP para API com Fastify
+
+<div style="display: inline_block"align="center" >
+  <img align="center" alt="HTML5"  width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastify/fastify-original.svg">
+</div>
+
+<br>
 
 os principais ***métodos HTTP*** usados em ***APIs RESTful***, junto com suas descrições:
 
@@ -489,4 +509,50 @@ Esse arquivo geralmente contém declarações de tipos TypeScript que ajudam o c
 Ao usar o Knex.js com TypeScript, é comum encontrar um arquivo knex.d.ts que fornece essas definições de tipo para que o TypeScript possa fazer inferências de tipo corretamente durante o desenvolvimento. 
 
 Isso ajuda a evitar erros e oferece um ambiente de desenvolvimento mais produtivo.
+ 
+## Arquivo ***.eslintrc.json*** Explicacao:
 
+<div style="display: inline_block"align="center" >
+  <img align="center" alt="HTML5"  width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/eslint/eslint-original.svg">
+</div>
+
+<br>
+
+O arquivo .eslintrc.json é um arquivo de configuração para o ESLint 
+
+uma ferramenta de análise estática de código para identificar problemas no código JavaScript.
+
+Este arquivo define as regras e configurações que o ESLint usará ao analisar o código-fonte do seu projeto.
+
+trazendo Exemplo de codigo 
+
+```json
+{
+  "extends": "eslint:recommended",
+  "rules": {
+    "semi": ["error", "always"],
+    "indent": ["error", 2],
+    "quotes": ["error", "single"]
+  }
+}
+```
+
+- A chave "extends" especifica que estamos estendendo as configurações recomendadas do ESLint, que são um conjunto padrão de regras.
+
+
+- A chave "rules" permite que você defina regras específicas. 
+
+- Por exemplo, estamos configurando a regra semi para exigir ponto e vírgula no final das linhas
+
+- a regra indent para exigir indentação de 2 espaços e a regra quotes para exigir o uso de aspas simples para strings
+
+
+## Arquivo ***.gitignore*** Explicacao:
+
+<div style="display: inline_block"align="center" >
+  <img align="center" alt="HTML5"  width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg">
+</div>
+
+ é um arquivo de configuração usado para especificar quais arquivos e diretórios o Git deve ignorar ao rastrear as alterações em um repositório Git. 
+ 
+ Isso significa que os arquivos e diretórios listados no .gitignore não serão incluídos nas operações de git add e git commit, tornando-os essencialmente invisíveis para o Git.
