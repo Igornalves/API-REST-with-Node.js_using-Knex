@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import 'dotenv/config'
 import { z } from 'zod'
 
@@ -7,23 +6,25 @@ import { z } from 'zod'
 // development, test, production
 
 const envSchema = z.object({
-    NODE_ENV: z.enum(['development', 'test', 'production']).default('production'),
-    DATABASE_CLIENT: z.string(),
-    HOST_DB: z.string(),
-    USER_DB: z.string(),
-    PORT_DB: z.number().default(5432),
-    PASSWORD_DB: z.string(),
-    DATABASE_NAME: z.string(),
-    PORT: z.number().default(3333)
+  NODE_ENV: z.enum(['development', 'test', 'production']).default('production'),
+  DATABASE_CLIENT: z.string(),
+  HOST_DB: z.string(),
+  USER_DB: z.string(),
+  PORT_DB: z.number().default(5432),
+  PASSWORD_DB: z.string(),
+  DATABASE_NAME: z.string(),
+  PORT: z.number().default(3333),
 })
 
 const _env = envSchema.safeParse(process.env)
 
 if (_env.success === false) {
-    console.log('⚠️ Variavel da config invalida ou indefinida !!!', _env.error.format())
+  console.log(
+    '⚠️ Variavel da config invalida ou indefinida !!!',
+    _env.error.format(),
+  )
 
-    throw new Error('Variavel da config invalida ou indefinida')
+  throw new Error('Variavel da config invalida ou indefinida')
 }
 
 export const env = _env.data
-

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { knex as setupKnex } from 'knex'
 import { env } from '../env/EnvConfig'
 
