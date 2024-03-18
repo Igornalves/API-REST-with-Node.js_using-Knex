@@ -11,7 +11,9 @@ app.register(ConsultadoTabelas) // registrando plugins em uma instância do Fast
 
 app.register(inserindoDadosNasTabelas) // registrando plugins em uma instância do Fastify
 
-app.register(transacoesMaisValidacao) // registrando plugins em uma instância do Fastify
+app.register(transacoesMaisValidacao, {
+  prefix: '/transacoes',
+}) // registrando plugins em uma instância do Fastify
 
 app
   .listen({

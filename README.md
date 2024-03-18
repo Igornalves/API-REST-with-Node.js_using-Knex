@@ -20,16 +20,16 @@ contruir conhcimento em determinadas coisas existentes no node.js e tambem do Ty
 
 # Requisitos funcionais da aplicacao
 
-- [  ] o usuario deve criar uma nova transacao
-- [  ] o usuario deve poser obter um resumo da sua conta 
-- [  ] o usuario podera listar todas a transacoes que ja ocorreram
-- [  ] o usuario deve poder visualizar uma transacao unica
+- [ x ] o usuario deve criar uma nova transacao
+- [ x ] o usuario deve poder obter um resumo da sua conta 
+- [ x ] o usuario podera listar todas a transacoes que ja ocorreram
+- [ x ] o usuario deve poder visualizar uma transacao unica
 
 <br>
 
 # Requisitos de negocios da aplicacao
 
-- [  ] a transacao pode ser do tipo credito que somara ao valor total, ou debito subtraira 
+- [ x ] a transacao pode ser do tipo credito que somara ao valor total, ou debito subtraira 
 - [  ] deve ser possivel ideentificamos usuario entre as requisicoes
 - [  ] o usuario so pode visualizar transacoes o qual ele ja criou 
 

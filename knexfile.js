@@ -13,6 +13,7 @@ module.exports = {
       password: '08901',
     },
     migrations: {
+      directory: './migrations', // Diretório onde as migrações estão localizadas
       tableName: 'migracoes_transacoes',
     },
   },
