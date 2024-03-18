@@ -6,6 +6,8 @@ import { randomUUID } from 'node:crypto' // permite gerar identificadores único
 
 import { knex } from '../databases/databaseConnection' // importando o arquivo de conexao
 
+// Cookies <--> formas de manter o contexto das requisicoes da aplicacão.
+
 // request Body: Https protocolo
 
 // fazendo um exportacao uma funcao assíncrona com um parametro que recebe a instancia fastify para uma rota de transacao

@@ -74,6 +74,12 @@ comando que é utilizado para instalar o framework Fastify no seu projeto Node.j
 ```javascript
 npm install fastify
 ```
+o comando é um plugin para o framework Fastify que facilita a manipulação de cookies em aplicativos da web.
+
+Cookies são pequenos pedaços de dados armazenados no navegador do usuário e são frequentemente usados para rastrear informações sobre o usuário ou manter o estado da sessão.
+```javascript
+npm install @fastify/cookie
+```
 
 comando que é utilizado para instalar os tipos de definição de TypeScript para o Node.js no seu projeto. Esses tipos de definição fornecem informações sobre a estrutura e os tipos de dados usados nas bibliotecas do Node.js, o que é útil ao escrever código TypeScript:
 
@@ -805,3 +811,23 @@ DB_PASSWORD=mypassword
 ```
 
 ### Em resumo, a biblioteca dotenv é uma ferramenta valiosa para gerenciar variáveis de ambiente em aplicativos Node.js, facilitando a configuração e garantindo a segurança das informações confidenciais do seu projeto.
+
+## Usando a Extensão do Postman no Vs.code
+
+<div style="display: inline_block"align="center" >
+  <img align="center" alt="HTML5"  width="120" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postman/postman-original.svg">
+</div>
+
+<br>
+
+Esta extensão permite que você envie solicitações HTTP diretamente do seu editor de código e visualize as respostas diretamente no VS Code, o que pode ser útil durante o desenvolvimento de APIs e serviços da web.
+
+Com a extensão "REST Client", você pode criar arquivos de texto com extensão .http ou .rest e escrever solicitações HTTP dentro deles usando uma sintaxe semelhante à do Postman. Por exemplo:
+
+<div style="display: inline_block"align="center" >
+  <img align="center" alt="HTML5" src="./icons/postmanFuncionando.png">
+</div>
+
+<br>
+
+A resposta será exibida diretamente no VS Code, permitindo que você visualize e analise as respostas de suas solicitações HTTP sem precisar alternar entre diferentes aplicativos.

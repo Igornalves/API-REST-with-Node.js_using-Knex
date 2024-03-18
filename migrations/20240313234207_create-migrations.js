@@ -5,7 +5,7 @@
  */
 exports.up = function (knex) {
   return knex.schema.alterTable('transacoes', (table) => {
-    table.dropColumn('title').alter()
+    table.uuid('session_id').after('id')
   })
 }
 
