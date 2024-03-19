@@ -1,9 +1,6 @@
 import { FastifyInstance } from 'fastify' // interface que define a estrutura  esperada de uma instância do Fastify, fornecer informações sobre a estrutura esperada dessa instância.
-
 import { z } from 'zod' // biblioteca em TypeScript que fornece uma forma simples e eficiente de definir e validar esquemas de dados deixando eles com uma tipagem para receber.
-
 import { randomUUID } from 'node:crypto' // permite gerar identificadores únicos universalmente (UUIDs) de forma aleatória e segura.
-
 import { knex } from '../databases/databaseConnection' // importando o arquivo de conexao
 
 // Cookies <--> formas de manter o contexto das requisicoes da aplicacão.
@@ -33,26 +30,41 @@ export async function transacoesMaisValidacao(app: FastifyInstance) {
     const { titulo, amount, type } = criandoTransacoesNoBodySchema.parse(
       request.body,
     )
+    // procurando deentro dos metadados invisiveis uma coluna que tenha sessionId
+    let sessionId = request.cookies.sessionId
+
+    // se nao tever o metadados ainda entra na condicao
+    if (!sessionId) {
+      // fazendo um sessionId usando o random para gerar um ID aleatorio
+      sessionId = randomUUID()
+      // é um método usado para configurar e enviar cookies na resposta HTTP.
+      replay.cookie('session_id', sessionId, {
+        // passando uma config para os cookies que qualquer rota ou uma rota especifica pode acessar os cookies
+        path: '/',
+        // passando um numero que em milesegundos e os multiplicando vai expira os cookies na maquina do cliente
+        maxAge: 1000 * 60 * 24 * 7, // 7 dias que vai dura os cookies expira
+      })
+    }
 
     await knex('transacoes').insert({
+      // inserindo um numenro aleatorio para ID na aplicacao
       id: randomUUID(),
       titulo,
       amount: type === 'credito' ? amount : amount * -1,
+      // passando o id para insersao no banco da dados
+      session_id: sessionId,
     })
 
     console.log('migracao feita com sucesso !!!!')
 
     // Isso define o código de status da resposta como 201, que significa "Created" (Criado). Esse código é comumente usado para indicar que uma nova entidade foi criada com sucesso.
-
     return replay.status(201).send('transacao enviada com suceesso !!!')
   })
 
   // criando uma rota para selecionar uma tabela
-
   app.get('/select', async () => {
     // select simples no banco de dados fazendo um query
     const listaDeTransacao = await knex('transacoes').select('*')
-
     // estar sendo passado a const como um objeto para que mesmo que tenha outro valores a ser passado, isso nao interfere na const principal
     return {
       total: 100,

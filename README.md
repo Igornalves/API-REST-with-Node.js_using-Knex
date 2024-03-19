@@ -492,7 +492,7 @@ tambem existe outra parte do arquivo que se refere a atalhor de comandos no term
     "init_knex-ts": "knex init -x ts",
     "migrate_knex": "knex migrate:make create-migrations",
     "r_knex": "knex migrate:latest",
-    "back_knex": "knex migrate:rollback"
+    "back_knex": "knex migrate:rollback --all"
   },
 ```
 

@@ -8,6 +8,7 @@ exports.up = function (knex) {
     table.text('titulo')
     table.decimal('amount', 10, 2).notNullable()
     table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable()
+    table.uuid('session_id')
   })
 }
 /**
@@ -15,7 +16,7 @@ exports.up = function (knex) {
  * @returns { Promise<void> }
  */
 exports.down = function (knex) {
-  return knex.schema.dropTable('')
+  return knex.schema.dropTable('transacoes')
 }
 
 exports.config = { transaction: true }

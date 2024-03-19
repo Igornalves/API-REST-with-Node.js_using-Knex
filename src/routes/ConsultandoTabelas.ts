@@ -3,12 +3,15 @@ import { knex } from '../databases/databaseConnection' // importando o arquivo d
 
 export async function ConsultadoTabelas(app: FastifyInstance) {
   app.get('/alimentos', async () => {
+    // criando uma const para selecionar a tabela do banco
     const tabelas = await knex('produtos_alimenticios').select('*')
 
+    // imprimindo no terminal para vr se deu certo a conexao
     console.log(
       'retornando dados completos que existe na tabela produtos_alimenticios',
     )
 
+    // retornando a selecao da tabela
     return tabelas
   })
 
