@@ -13,7 +13,7 @@
     "back_knex": "knex migrate:rollback --all"
   },
   "keywords": [],
-  "author": "",
+  "author": "igorn",
   "license": "ISC",
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.2.2",
