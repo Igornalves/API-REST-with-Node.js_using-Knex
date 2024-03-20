@@ -8,9 +8,13 @@ import { transacoesMaisValidacao } from './routes/transacoes'
 
 const app = fastify() // usar métodos e funcionalidades do Fastify para configurar a aplicacao
 
-app.register(ConsultadoTabelas) // registrando plugins em uma instância do Fastify
+app.register(ConsultadoTabelas, {
+  prefix: '/consulta',
+}) // registrando plugins em uma instância do Fastify
 
-app.register(inserindoDadosNasTabelas) // registrando plugins em uma instância do Fastify
+app.register(inserindoDadosNasTabelas, {
+  prefix: '/inserindo',
+}) // registrando plugins em uma instância do Fastify
 
 app.register(cookiesApi) // fazendo o registro antes para das transacoes para fazer os cookies funcionar totalmente
 

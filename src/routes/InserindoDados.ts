@@ -24,6 +24,6 @@ export async function inserindoDadosNasTabelas(app: FastifyInstance) {
     )
 
     // retornando a variavel await (é uma palavra-chave usada em JavaScript em conjunto com funções assíncronas para esperar a conclusão de uma operação assíncrona)
-    return inserindo
+    return { inserindo }
   })
 }

@@ -2,6 +2,7 @@ import { FastifyInstance } from 'fastify' // interface que define a estrutura  e
 import { z } from 'zod' // biblioteca em TypeScript que fornece uma forma simples e eficiente de definir e validar esquemas de dados deixando eles com uma tipagem para receber.
 import { randomUUID } from 'node:crypto' // permite gerar identificadores únicos universalmente (UUIDs) de forma aleatória e segura.
 import { knex } from '../databases/databaseConnection' // importando o arquivo de conexao
+import { checkSessionIdExist } from '../middleware/check-session-id-exist'
 
 // Cookies <--> formas de manter o contexto das requisicoes da aplicacão.
 
@@ -30,7 +31,7 @@ export async function transacoesMaisValidacao(app: FastifyInstance) {
     const { titulo, amount, type } = criandoTransacoesNoBodySchema.parse(
       request.body,
     )
-    // procurando deentro dos metadados invisiveis uma coluna que tenha sessionId
+    // procurando dentro dos metadados invisiveis uma coluna que tenha sessionId
     let sessionId = request.cookies.sessionId
 
     // se nao tever o metadados ainda entra na condicao
@@ -62,19 +63,55 @@ export async function transacoesMaisValidacao(app: FastifyInstance) {
   })
 
   // criando uma rota para selecionar uma tabela
-  app.get('/select', async () => {
+  app.get('/select', async (request, replay) => {
+    // procurando dentro dos metadados invisiveis uma coluna que tenha sessionId
+    const sessionId = request.cookies.session_id
+    // fazendo a condicao de que se nao existi o sessionId ira dar erro para acessar os dados da selecao dos dados no banco
+    if (!sessionId) {
+      return replay.status(401).send({
+        error: '!!!! Nao Autorizado !!!!',
+      })
+    }
+
     // select simples no banco de dados fazendo um query
-    const listaDeTransacao = await knex('transacoes').select('*')
+    const listaDeTransacao = await knex('transacoes')
+      // fazendo uma selecao mais especifica somente do cookies atual
+      .where('session_id', sessionId)
+      .select('*')
+
     // estar sendo passado a const como um objeto para que mesmo que tenha outro valores a ser passado, isso nao interfere na const principal
     return {
       total: 100,
       coisas: 'simplemente bonito',
+      // const principal
       listaDeTransacao,
     }
   })
 
+  // criando uma nova rota para selecionar uma tabela de outra forma aplicando um check de validacao
+  app.get(
+    '/selectNewTransacoes',
+    { preHandler: checkSessionIdExist },
+    async (request) => {
+      // procurando dentro dos metadados invisiveis uma coluna que tenha sessionId
+      const sessionId = request.cookies.session_id
+
+      // select simples no banco de dados fazendo um query
+      const listaDeTransacao = await knex('transacoes')
+        .where('session_id', sessionId)
+        .select('*')
+
+      // estar sendo passado a const como um objeto para que mesmo que tenha outro valores a ser passado, isso nao interfere na const principal
+      return {
+        total: 234621,
+        coisas: 'simplemente bonito esta cara ai mano !!!!',
+        listaDeTransacao,
+      }
+    },
+  )
+
   // passando um metodo que tem uma funcao assincrona com um parametro a ser recebido na rota GET, que vai valida e retorna dados de um ID de alguma transacao especifico feita na tabela existente no banco de dados.
-  app.get('/:id', async (request) => {
+  app.get('/:id', { preHandler: checkSessionIdExist }, async (request) => {
     // a const estar recebendo um objeto zod para identificar o tipo de dados recebido pela rota um ID espcifico da tabela transacoes
     const getTransacoesParamsSchema = z.object({
       id: z.string().uuid(),
@@ -83,14 +120,22 @@ export async function transacoesMaisValidacao(app: FastifyInstance) {
     // passando para a constante um objeto ID para
     const { id } = getTransacoesParamsSchema.parse(request.params)
 
+    // procurando dentro dos metadados invisiveis uma coluna que tenha sessionId
+    const sessionId = request.cookies.session_id
+
     // passando o funcao first para que a const criada nao retorne um array e sim um objeto pesquisado ou passado.
-    const transacao = await knex('transacoes').where('id', id).first()
+    const transacao = await knex('transacoes')
+      .where({
+        session_id: sessionId,
+        id,
+      })
+      .first()
 
     // retornando os dados da const transacao como a pesquisa do ID colocado na rota.
     return { transacao }
   })
 
-  app.get('/resumo', async () => {
+  app.get('/resumo', { preHandler: checkSessionIdExist }, async (request) => {
     // criando um resumo de transicoes com a soma dos amounts usando (sum) e alem de fazer ele nao retorna um array com (first)
 
     // o retorno normal a query feita aqui é de um array, porém entretanto podesse usar o (first) para resolver isso retornado um objeto
@@ -98,11 +143,33 @@ export async function transacoesMaisValidacao(app: FastifyInstance) {
     // passando algumas configuracoes para o retorno dos dados de forma melhor tirando o nome "sum" que aparece no terminal.
 
     // desta forma o nome que aparece no terminal e o amount, especificando os dados enviando.
+    // procurando dentro dos metadados invisiveis uma coluna que tenha sessionId
+    const sessionId = request.cookies.session_id
+
     const resumoTransacao = await knex('transacoes')
       .sum('amount', { as: 'amount' })
+      .where('session_id', sessionId)
       .first()
 
     // fazendo um retorno da constante.
     return { resumoTransacao }
+  })
+
+  app.get('/migration', async () => {
+    const consultandoMigrations = await knex('migracoes_transacoes').select('*')
+
+    console.log('consulta liberada da migration1 !!!!')
+
+    return { consultandoMigrations }
+  })
+
+  app.get('/migration2', async () => {
+    const consultandoMigrations2 = await knex(
+      'migracoes_transacoes_lock',
+    ).select('*')
+
+    console.log('consulta liberada da migration2 !!!!')
+
+    return { consultandoMigrations2 }
   })
 }
