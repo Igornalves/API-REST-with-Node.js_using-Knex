@@ -4,11 +4,13 @@
 
 <div style="display: inline_block" align="center">
   <img align="center" alt="knex" width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg">
+  <img align="center" alt="knex" width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg">
   <img align="center" alt="knex" width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg">
   <img align="center" alt="knex" width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastify/fastify-original.svg">
+  <img align="center" alt="knex" width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vitest/vitest-original.svg">
   <img align="center" alt="knex" width="80" src="./icons/zod-logo-B57E684330-seeklogo.com.png">
-  <img align="center" alt="knex" width="80" src="./icons/dotenv.png">
   <img align="center" alt="knex" width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/knexjs/knexjs-original.svg">
+  <img align="center" alt="knex" width="80" src="./icons/dotenv.png">
 </div>
 
 <br>
@@ -154,25 +156,6 @@ Depois de instalar o **_ts-node_**, você pode executar arquivos TypeScript dire
 ```html
 ts-node <nome-do-arquivo>.ts</nome-do-arquivo>
 ```
-é usado para instalar pacotes relacionados a testes em um projeto Node.js. 
-
-A opção -D indica que o pacote será instalado como uma dependência de desenvolvimento, o que significa que ele será incluído apenas no ambiente de desenvolvimento e não será necessário em produção.
-
-```javascript
-npm i vitest -D
-```
-O comando npx vitest é usado para executar o pacote vitest temporariamente, sem a necessidade de instalá-lo globalmente ou localmente em seu projeto.
-
-```javascript
-npx vitest
-```
-como fica o teste automatizado quando realizado no terminal 
-
-<div style="display: inline_block" align="center">
-  <img align="center" alt="knex" src="./icons/teste automatizado com vitest.png">
-</div>
-
-<br>
 
 Para desinstalar um pacote do Node.js utilizando o npm, você pode usar o comandoÇ
 
@@ -555,6 +538,7 @@ tambem existe outra parte do arquivo que se refere a atalhor de comandos no term
 "scripts": {
     "dev": "tsx watch src/server.ts",
     "lint": "eslint src --ext .ts --fix",
+    "test":"vitest",
     "init_knex": "knex init",
     "init_knex-ts": "knex init -x ts",
     "migrate_knex": "knex migrate:make create-migrations",
@@ -573,7 +557,8 @@ ja nessa outra partee aqui estao as versoes utilizadas tanto da bibliotecas loca
     "@types/node": "^20.11.24",
     "eslint": "^8.57.0",
     "tsx": "^4.7.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^1.4.0"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
@@ -896,3 +881,51 @@ Com a extensão "REST Client", você pode criar arquivos de texto com extensão 
 <br>
 
 A resposta será exibida diretamente no VS Code, permitindo que você visualize e analise as respostas de suas solicitações HTTP sem precisar alternar entre diferentes aplicativos.
+
+# Usando o FrameWork de Teste Automatizados ***ViteST***
+
+<div style="display: inline_block" align="center">
+  <img align="center" alt="knex" width="120" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vitest/vitest-original.svg">
+</div>
+
+<br>
+
+é usado para instalar pacotes relacionados a testes em um projeto Node.js.
+
+A opção -D indica que o pacote será instalado como uma dependência de desenvolvimento, o que significa que ele será incluído apenas no ambiente de desenvolvimento e não será necessário em produção.
+
+```javascript
+npm i vitest -D
+```
+
+O comando npx vitest é usado para executar o pacote vitest temporariamente, sem a necessidade de instalá-lo globalmente ou localmente em seu projeto.
+
+```javascript
+npx vitest
+```
+
+como fica o teste automatizado quando realizado no terminal
+
+<div style="display: inline_block" align="center">
+  <img align="center" alt="knex" src="./icons/teste automatizado com vitest.png">
+</div>
+
+<br>
+
+adicionando no script do projeto na parte **_Package.json_** para executar via comando no terminal de maneira mais facil
+
+```json
+"scripts": {
+  "test":"vitest",
+}
+```
+
+executando ele usando o seguinte comando chamando:
+
+```javascript
+npm run test
+
+ou
+
+npm test
+```

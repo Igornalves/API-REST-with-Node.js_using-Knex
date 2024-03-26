@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "lint": "eslint src --ext .ts --fix",
+    "test":"vitest",
     "init_knex": "knex init",
     "init_knex-ts": "knex init -x ts",
     "migrate_knex": "knex migrate:make create-migrations",
