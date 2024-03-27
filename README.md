@@ -1,4 +1,4 @@
-# Projeto de Aprendizado para construir uma API REST com Knex
+# Learning Project to build a REST API with Knex
 
 <br>
 
@@ -15,29 +15,29 @@
 
 <br>
 
-Estarei usando da biblioteca como knex.js e fastify para produzir uma API com o intuito de
-contruir conhcimento em determinadas coisas existentes no node.js e tambem do TypeScript na Aplicacao e entender o que acontece por debaixo dos panos
+I will be using libraries such as knex.js and fastify to produce an API with the aim of
+build knowledge on certain things that exist in node.js and also TypeScript in the Application and understand what happens under the hood
 
 <br>
 
-# Requisitos funcionais da aplicacao
+# Application functional requirements
 
-- [ x ] o usuario deve criar uma nova transacao
-- [ x ] o usuario deve poder obter um resumo da sua conta
-- [ x ] o usuario podera listar todas a transacoes que ja ocorreram
-- [ x ] o usuario deve poder visualizar uma transacao unica
-
-<br>
-
-# Requisitos de negocios da aplicacao
-
-- [ x ] a transacao pode ser do tipo credito que somara ao valor total, ou debito subtraira
-- [ ] deve ser possivel ideentificamos usuario entre as requisicoes
-- [ ] o usuario so pode visualizar transacoes o qual ele ja criou
+- [ x ] the user must create a new transaction
+- [ x ] the user must be able to obtain a summary of their account
+- [ x ] the user can list all transactions that have already occurred
+- [ x ] the user must be able to view a single transaction
 
 <br>
 
-# Comandos para Estruturacao Basica do Projeto no Terminal
+# Application business requirements
+
+- [ x ] the transaction can be of the credit type that will add to the total amount, or debit that will subtract
+- [ ] it must be possible to identify the user among requests
+- [ ] the user can only view transactions that he has already created
+
+<br>
+
+# Commands for Basic Project Structuring in the Terminal
 
 <div style="display: inline_block"align="center" >
   <img align="center" alt="HTML5"  width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/powershell/powershell-original.svg">
@@ -46,32 +46,32 @@ contruir conhcimento em determinadas coisas existentes no node.js e tambem do Ty
 
 <br>
 
-comando que é usado para inicializar um novo projeto npm de forma rápida e automática, sem a necessidade de responder a perguntas interativas:
+command that is used to bootstrap a new npm project quickly and automatically without the need to answer interactive questions:
 
 ```javascript
 npm init -y
 ```
 
-comando que instala o TypeScript como uma dependência de desenvolvimento em seu projeto:
+command that installs TypeScript as a development dependency in your project:
 
 ```javascript
 npm i -D typescript
 ```
 
-comando usando para inicializar um arquivo de configuração do TypeScript em um projeto,
-ele cria um arquivo chamado tsconfig.json no diretório atual
+command using to initialize a TypeScript configuration file in a project,
+it creates a file called tsconfig.json in the current directory
 
 ```javascript
 npx tsc --init
 ```
 
-chamando explicitamente o executável **tsc** localizado no diretório **.bin** dentro do diretório node_modules, é uma forma de executar o compilador TypeScript (tsc) diretamente a partir do diretório node_modules do seu projeto:
+Explicitly calling the **tsc** executable located in the **.bin** directory within the node_modules directory is a way to run the TypeScript compiler (tsc) directly from your project's node_modules directory:
 
 ```javascript
 .\node_modules\.bin\tsc
 ```
 
-comando que é usado para compilar o arquivo TypeScript server.ts localizado no diretório src do seu projeto:
+command that is used to compile the TypeScript server.ts file located in the src directory of your project:
 
 ```javascript
 npx tsc .\src\server.ts
@@ -81,97 +81,97 @@ ou
 npx tsx .\src\server.ts
 ```
 
-comando que é utilizado para instalar o framework Fastify no seu projeto Node.js
+command that is used to install the Fastify framework in your Node.js project
 
 ```javascript
 npm install fastify
 ```
 
-o comando é um plugin para o framework Fastify que facilita a manipulação de cookies em aplicativos da web.
+The command is a plugin for the Fastify framework that makes it easier to manipulate cookies in web applications.
 
-Cookies são pequenos pedaços de dados armazenados no navegador do usuário e são frequentemente usados para rastrear informações sobre o usuário ou manter o estado da sessão.
+Cookies are small pieces of data stored in the user's browser and are often used to track information about the user or maintain session state.
 
 ```javascript
 npm install @fastify/cookie
 ```
 
-comando que é utilizado para instalar os tipos de definição de TypeScript para o Node.js no seu projeto. Esses tipos de definição fornecem informações sobre a estrutura e os tipos de dados usados nas bibliotecas do Node.js, o que é útil ao escrever código TypeScript:
+command that is used to install TypeScript definition types for Node.js in your project. These definition types provide information about the structure and data types used in Node.js libraries, which is useful when writing TypeScript code:
 
 ```javascript
 npm install -D @types/node
 ```
 
-instala a biblioteca dotenv para seu projeto.
+installs the dotenv library for your project.
 
-O Dotenv é uma biblioteca que permite carregar variáveis de ambiente de um arquivo **_.env_** para **_process.env_** no Node.js.
+Dotenv is a library that allows you to load environment variables from a **_.env_** file to **_process.env_** in Node.js.
 
-Isso é útil para manter informações sensíveis, como chaves de **_API_** ou **_credenciais de banco de dados_**, fora do código-fonte e gerenciá-las de forma mais segura.
+This is useful for keeping sensitive information, such as **_API_** keys or **_database credentials_**, out of the source code and managing them more securely.
 
 ```javascript
 npm install dotenv
 ```
 
-comando que instala a biblioteca Zod, que é uma biblioteca de validação de esquema para TypeScript e JavaScript.
+command that installs the Zod library, which is a schema validation library for TypeScript and JavaScript.
 
-Com o Zod, você pode definir esquemas de dados de forma simples e segura e validar dados de entrada em seu aplicativo.
+With Zod, you can simply and securely define data schemas and validate input data in your application.
 
-Isso ajuda a garantir que os dados que seu aplicativo recebe estejam no formato esperado, evitando bugs relacionados a dados incorretos ou malformatados.
+This helps ensure that the data your application receives is in the expected format, preventing bugs related to incorrect or malformatted data.
 
 ```javascript
 npm install zod
 ```
 
-O comando serve para instalar o pacote tsx como uma dependência de desenvolvimento no seu projeto:
+The command is used to install the tsx package as a development dependency in your project:
 
-OBS:. **tsx** é uma extensão de arquivo usada principalmente em projetos TypeScript para arquivos que contêm código **JSX**
+NOTE:. **tsx** is a file extension used primarily in TypeScript projects for files containing **JSX** code
 
-**JSX** é uma extensão de sintaxe para JavaScript frequentemente associada a bibliotecas como React.js. Permite escrever **_código HTML_** dentro do **_JavaScript_** de uma forma mais intuitiva e expressiva.
+**JSX** is a syntax extension for JavaScript often associated with libraries like React.js. Allows you to write **_HTML code_** within **_JavaScript_** in a more intuitive and expressive way.
 
-OBS:. mais em producao o mais indicado e roda o java script mesmo
+NOTE:. most in production the most suitable and runs the java script even
 
 ```javascript
 npm install tsx -D
 ```
 
-comando que é utilizado para instalar a ferramenta httpie via Python Package Index (PyPI).
+command that is used to install the httpie tool via Python Package Index (PyPI).
 
-Essa ferramenta é útil para realizar requisições HTTP de maneira simplificada e fácil de usar diretamente da linha de comando no terminal integrado Vs.code
+This tool is useful for making HTTP requests in a simplified and easy-to-use way directly from the command line in the Vs.code integrated terminal
 
-Com o httpie, você pode enviar solicitações HTTP, visualizar as respostas e realizar várias operações comuns de forma rápida e intuitiva.
+With httpie, you can send HTTP requests, view responses, and perform many common operations quickly and intuitively.
 
 ```javascript
 pip install httpie
 ```
 
-comando que configurando um ambiente onde pode executar arquivos TypeScript diretamente, sem a necessidade de compilar primeiro para JavaScript.
+command that sets up an environment where you can run TypeScript files directly, without the need to first compile to JavaScript.
 
-é uma ferramenta que permite executar arquivos TypeScript diretamente no Node.js, sem a necessidade de compilar manualmente para JavaScript antes da execução.
+is a tool that allows you to run TypeScript files directly in Node.js, without the need to manually compile to JavaScript before running.
 
 ```javascript
 npm install ts-node
 ```
 
-Depois de instalar o **_ts-node_**, você pode executar arquivos TypeScript diretamente no terminal, usando o comando
+After installing **_ts-node_**, you can run TypeScript files directly in the terminal using the command
 
 ```html
 ts-node <nome-do-arquivo>.ts</nome-do-arquivo>
 ```
 
-Para desinstalar um pacote do Node.js utilizando o npm, você pode usar o comandoÇ
+To uninstall a Node.js package using npm, you can use the command
 
 ```html
 npm uninstall <nome-do-biblioteca></nome-do-biblioteca>
 ```
 
-Testando rota aleatoria usando o httpie no terminal:
+Testing random route using httpie in the terminal:
 
 ```javaScript
 http localhost:3333/hello
 ```
 
-Este script dev tem que está configurando no arquivo **package.json**
+This dev script must be configured in the **package.json** file
 
-Ele iniciará o compilador TypeScript em modo de observação, monitorando o arquivo **src/server.ts** por alterações e recompilando-o sempre que detectar uma mudança
+It will start the TypeScript compiler in watch mode, monitoring the **src/server.ts** file for changes and recompiling it whenever it detects a change
 
 ```json
 "scripts": {
@@ -179,13 +179,13 @@ Ele iniciará o compilador TypeScript em modo de observação, monitorando o arq
 },
 ```
 
-pode ser executado no terminal com o seguinte comando
+can be run in the terminal with the following command
 
 ```javascript
 npm run dev
 ```
 
-Este script **"lint"** é usado para executar o ESLint nos arquivos **TypeScript (\*.ts)** dentro do diretório "src".
+This **"lint"** script is used to run ESLint on the **TypeScript (\*.ts)** files inside the "src" directory.
 
 ```json
 "scripts": {
@@ -193,29 +193,29 @@ Este script **"lint"** é usado para executar o ESLint nos arquivos **TypeScript
 },
 ```
 
-pode ser executado no terminal com o seguinte comando
+can be run in the terminal with the following command
 
 ```javascript
 npm run lint
 ```
 
-Este comando que instala o ESLint como uma dependência de desenvolvimento no projeto.
+This command installs ESLint as a development dependency in the project.
 
-**ESLint** é uma ferramenta de análise estática de código para identificar e relatar padrões problemáticos no código JavaScript.
+**ESLint** is a static code analysis tool for identifying and reporting problematic patterns in JavaScript code.
 
 ```javascript
 npm i eslint -D
 ```
 
-Este comando instala o ESLint e uma configuração específica fornecida pelo pacote **@rocketseat/eslint-config**, ambos como dependências de desenvolvimento (-D)
+This command installs ESLint and a specific configuration provided by the **@rocketseat/eslint-config** package, both as development dependencies (-D)
 
 ```javascript
 npm i eslint @rocketseat/eslint-config -D
 ```
 
-Cria essa parte se no seu settings.json do vs.code usando o CRTL + SHIFT + P para acessar (open user settings)
+Create this part in your vs.code settings.json using CRTL + SHIFT + P to access (open user settings)
 
-Essas configurações estão relacionadas ao ESLint e ao VS Code:
+These settings are related to ESLint and VS Code:
 
 ```json
 "editor.codeActionsOnSave": {
@@ -228,31 +228,31 @@ Essas configurações estão relacionadas ao ESLint e ao VS Code:
 ],
 ```
 
-comando que é usado para exibir uma lista das dependências instaladas em um projeto Node.js.
+command that is used to display a list of the dependencies installed in a Node.js project.
 
-Quando você o executa no diretório raiz de um projeto, ele mostrará todas as dependências
+When you run it from the root directory of a project it will show all dependencies
 
-incluindo as dependências diretas e indiretas (também conhecidas como dependências transitivas) e suas versões correspondentes.
+including direct and indirect dependencies (also known as transitive dependencies) and their corresponding versions.
 
 ```javascript
 npm list
 ```
 
-é usado para listar todas as dependências globais instaladas pelo npm.
+is used to list all global dependencies installed by npm.
 
-Ele exibirá todas as dependências globais instaladas no seu sistema
+It will display all global dependencies installed on your system
 
-independentemente do diretório em que você esteja atualmente.
+regardless of the directory you are currently in.
 
 ```javascript
 npm list -g
 ```
 
-comando que é usado para executar e inicializa o knex em um projeto Node.js.
+command that is used to run and initialize knex in a Node.js project.
 
-O comando cria um arquivo de configuração **knexfile.js** na raiz do seu projeto
+The command creates a configuration file **knexfile.js** in the root of your project
 
-contendo configurações para conexão com o banco de dados, migrações e sementes.
+containing settings for database connection, migrations and seeds.
 
 ```json
 "scripts": {
@@ -260,13 +260,13 @@ contendo configurações para conexão com o banco de dados, migrações e semen
 },
 ```
 
-pode ser executado no terminal com o seguinte comando
+can be run in the terminal with the following command
 
 ```javascript
 npm run init_knex
 ```
 
-é semelhante ao anterior, mas com uma diferença importante: ele usa a opção -x ts para especificar que as migrações geradas devem ter a extensão **.ts** em vez da extensão padrão **.js**
+is similar to the previous one, but with one important difference: it uses the -x ts option to specify that generated migrations should have the **.ts** extension instead of the default **.js** extension
 
 ```json
 "scripts": {
@@ -274,17 +274,17 @@ npm run init_knex
 },
 ```
 
-pode ser executado no terminal com o seguinte comando
+can be run in the terminal with the following command
 
 ```javascript
 npm run init_knex-ts
 ```
 
-comando que é usado para criar um novo arquivo de migração no seu projeto Knex
+command that is used to create a new migration file in your Knex project
 
-o Knex cria um novo arquivo de migração com o nome **create-migrations**.
+Knex creates a new migration file named **create-migrations**.
 
-Esse arquivo será adicionado ao diretório de migrações do seu projeto Knex e você poderá editá-lo para definir as operações que deseja realizar no banco de dados quando executar a migração.
+This file will be added to the migrations directory of your Knex project and you can edit it to define the operations you want to perform on the database when you run the migration.
 
 ```json
 "scripts": {
@@ -292,15 +292,15 @@ Esse arquivo será adicionado ao diretório de migrações do seu projeto Knex e
 },
 ```
 
-pode ser executado no terminal com o seguinte comando
+can be run in the terminal with the following command
 
 ```javascript
 npm run migrate_knex
 ```
 
-comando que é usado para aplicar todas as migrações pendentes ao seu banco de dados.
+command that is used to apply all pending migrations to your database.
 
-o Knex executa todas as migrações que ainda não foram aplicadas ao banco de dados, garantindo que o esquema do banco de dados esteja atualizado com as últimas alterações definidas nos arquivos de migração.
+Knex runs all migrations that have not yet been applied to the database, ensuring that the database schema is up to date with the latest changes defined in the migration files.
 
 ```json
 "scripts": {
@@ -308,17 +308,17 @@ o Knex executa todas as migrações que ainda não foram aplicadas ao banco de d
 },
 ```
 
-pode ser executado no terminal com o seguinte comando
+can be run in the terminal with the following command
 
 ```javascript
 npm run r_knex
 ```
 
-é usado para reverter a última migração aplicada ao banco de dados.
+is used to roll back the last migration applied to the database.
 
-o Knex desfaz a última migração que foi aplicada, revertendo as alterações no esquema do banco de dados.
+Knex undoes the last migration that was applied, reverting the changes to the database schema.
 
-Isso pode ser útil se você cometeu um erro durante uma migração ou precisa desfazer uma alteração específica no banco de dados.
+This can be useful if you made a mistake during a migration or need to undo a specific database change.
 
 ```json
 "scripts": {
@@ -326,21 +326,21 @@ Isso pode ser útil se você cometeu um erro durante uma migração ou precisa d
 },
 ```
 
-pode ser executado no terminal com o seguinte comando
+can be run in the terminal with the following command
 
 ```javascript
 npm run back_knex
 ```
 
-comando que é usado para carregar variáveis de ambiente de um arquivo .env em sua aplicação Node.js.
+command that is used to load environment variables from a .env file into your Node.js application.
 
-Isso é útil para manter suas configurações sensíveis fora do código-fonte e para fornecer uma maneira fácil de configurar o ambiente de desenvolvimento, teste e produção separadamente.
+This is useful for keeping your sensitive configurations out of the source code and for providing an easy way to configure the development, testing, and production environment separately.
 
 ```javascript
 npm install dotenv
 ```
 
-# Conexão com o Banco de Dados
+# Connection to the Database
 
 <div style="display: inline_block"align="center" >
   <img align="center" alt="HTML5"  width="120" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg">
@@ -350,17 +350,17 @@ npm install dotenv
 
 <br>
 
-informações de conexão para um banco de dados PostgreSQL.
+connection information for a PostgreSQL database.
 
-- **host:** O endereço IP ou nome de host do servidor onde o banco de dados PostgreSQL está sendo executado. Neste caso, está configurado como IP, que é o endereço localhost.
+- **host:** The IP address or hostname of the server where the PostgreSQL database is running. In this case, it is configured as IP, which is the localhost address.
 
-- **port:** A porta em que o PostgreSQL está escutando conexões. Por padrão, o PostgreSQL usa a porta 5432.
+- **port:** The port on which PostgreSQL is listening for connections. By default, PostgreSQL uses port 5432.
 
-- **user:** O nome de usuário usado para autenticar no banco de dados PostgreSQL.
+- **user:** The username used to authenticate to the PostgreSQL database.
 
-- **password:** A senha associada ao usuário para autenticação no banco de dados PostgreSQL.
+- **password:** The password associated with the user for authentication in the PostgreSQL database.
 
-- **database:** O nome do banco de dados ao qual você deseja se conectar.
+- **database:** The name of the database you want to connect to.
 
 <br>
 
@@ -377,7 +377,7 @@ export const knex = setupKnex({
 });
 ```
 
-outra forma de fazer esta conxão com o banco passando uma URL do banco para o sistema:
+Another way to make this connection with the bank is by passing a URL from the bank to the system:
 
 ```typescript
 export const knex = setupKnex({
@@ -390,7 +390,7 @@ export const knex = setupKnex({
 
 <br>
 
-# Metodos HTTP para API com Fastify
+# HTTP Methods for API with Fastify
 
 <div style="display: inline_block"align="center" >
   <img align="center" alt="HTML5"  width="120" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastify/fastify-original.svg">
@@ -398,49 +398,49 @@ export const knex = setupKnex({
 
 <br>
 
-os principais **_métodos HTTP_** usados em **_APIs RESTful_**, junto com suas descrições:
+the main **_HTTP_** methods used in **_RESTful APIs_**, along with their descriptions:
 
 ### 1. GET:
 
-- é usado para solicitar dados de um recurso específico ou uma coleção de recursos.
-- É seguro e idempotente, o que significa que não deve alterar o estado do servidor e pode ser chamado várias vezes sem efeitos colaterais.
-- Os parâmetros de consulta (query parameters) podem ser adicionados à URL para filtrar, classificar ou paginar os resultados.
+- is used to request data from a specific resource or a collection of resources.
+- It is safe and idempotent, meaning it should not change the server state and can be called multiple times without side effects.
+- Query parameters can be added to the URL to filter, sort or page results.
 
 ### 2. POST:
 
-- O método POST é usado para criar um novo recurso no servidor.
+- The POST method is used to create a new resource on the server.
 
-- Os dados a serem enviados são incluídos no corpo (body) da solicitação HTTP.
+- The data to be sent is included in the body of the HTTP request.
 
-- Não é idempotente, o que significa que chamar o mesmo endpoint POST várias vezes pode resultar na criação de múltiplos recursos.
+- It is not idempotent, which means that calling the same POST endpoint multiple times can result in the creation of multiple resources.
 
 ### 3. PUT:
 
-- O método PUT é usado para atualizar um recurso existente no servidor ou para criar um novo recurso se ele não existir.
+- The PUT method is used to update an existing resource on the server or to create a new resource if it does not exist.
 
-- Normalmente, o corpo da solicitação PUT contém o estado completo do recurso que está sendo atualizado.
+- Typically, the body of the PUT request contains the complete state of the resource being updated.
 
-- É idempotente, o que significa que chamar o mesmo endpoint PUT várias vezes resultará no mesmo estado do recurso.
+- It is idempotent, meaning that calling the same PUT endpoint multiple times will result in the same resource state.
 
 ### 4. PATCH:
 
-- O método PATCH é usado para aplicar alterações parciais a um recurso existente no servidor.
+- The PATCH method is used to apply partial changes to an existing resource on the server.
 
-- Ao contrário do PUT, o corpo da solicitação PATCH contém apenas as mudanças que devem ser aplicadas ao recurso, não o estado completo.
+- Unlike PUT, the body of the PATCH request contains only the changes that should be applied to the resource, not the complete state.
 
-- Também é idempotente, o que significa que chamá-lo várias vezes resultará no mesmo estado final.
+- It is also idempotent, meaning that calling it multiple times will result in the same final state.
 
 ### 5. DELETE:
 
-- O método DELETE é usado para remover um recurso específico do servidor.
+- The DELETE method is used to remove a specific resource from the server.
 
-- Não possui corpo de solicitação, pois só precisa da identificação do recurso a ser excluído.
+- It does not have a request body, as it only needs the identification of the resource to be deleted.
 
-- É idempotente, o que significa que chamar o mesmo endpoint DELETE várias vezes não terá efeitos além da primeira exclusão.
+- It is idempotent, meaning that calling the same DELETE endpoint multiple times will have no effects beyond the first deletion.
 
 <br>
 
-## Configurando o Arquivo knexfile.js ou knexfile.ts
+## Configuring the knexfile.js or knexfile.ts File
 
 <div style="display: inline_block"align="center" >
   <img align="center" alt="HTML5"  width="120" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/knexjs/knexjs-original.svg">
@@ -448,9 +448,9 @@ os principais **_métodos HTTP_** usados em **_APIs RESTful_**, junto com suas d
 
 <br>
 
-fazendo as config corretas para o arquivo quando criado para que fucione corretamente no projeto.
+making the correct settings for the file when created so that it works correctly in the project.
 
-vc pode passa o seguintes parametros necessarios:
+You can pass the following necessary parameters:
 
 ```javascript
 module.exports = {
@@ -500,13 +500,13 @@ module.exports = {
 
 <br>
 
-nome na tabela da migration é opcional para cada projeto.
+name in the migration table is optional for each project.
 
-OBS:. por padrao a documentacao indica vc usar o arquivo **_.js_** que no meu caso funcionou perfeitamente para fazer as migrations
+NOTE:. By default, the documentation indicates that you use the **_.js_** file, which in my case worked perfectly to make the migrations
 
-### Em Resumo,é um arquivo de configuração usado pela biblioteca Knex.js para definir e configurar conexões com bancos de dados, bem como especificar opções para migrações e sementes de dados. Este arquivo geralmente contém diferentes configurações para diferentes ambientes, como desenvolvimento, teste e produção, cada um com suas próprias configurações de conexão e opções específicas
+### In short, it is a configuration file used by the Knex.js library to define and configure connections to databases, as well as specify options for migrations and data seeds. This file usually contains different configurations for different environments such as development, testing and production, each with its own specific connection settings and options
 
-## Adcionando config no **_package.json_**
+## Add config to **package.json**
 
 <div style="display: inline_block"align="center" >
   <img align="center" alt="HTML5"  width="120" src="./icons/node-js.950x1024.png">
@@ -514,13 +514,13 @@ OBS:. por padrao a documentacao indica vc usar o arquivo **_.js_** que no meu ca
 
 <br>
 
-Ao adicionar **_"type": "module"_** ao seu arquivo package.json, você está informando ao Node.js que o seu projeto utilizará o sistema de módulos ECMAScript (ESM) em vez do sistema de módulos CommonJS padrão.
+By adding **_"type": "module"_** to your package.json file, you are telling Node.js that your project will use the ECMAScript module system (ESM) instead of the standard CommonJS module system .
 
-ou seja,
+i.e,
 
-Isso significa que você pode usar a sintaxe import e export para importar e exportar módulos, em vez de **_require()_** e **_module.exports_**.
+This means you can use import and export syntax to import and export modules, instead of **_require()_** and **_module.exports_**.
 
-Isso segue o padrão do JavaScript moderno e é mais consistente com outras plataformas e ambientes de desenvolvimento.
+This follows the modern JavaScript standard and is more consistent with other platforms and development environments.
 
 ```json
 {
@@ -532,7 +532,7 @@ Isso segue o padrão do JavaScript moderno e é mais consistente com outras plat
 }
 ```
 
-tambem existe outra parte do arquivo que se refere a atalhor de comandos no terminal para usar quando necessario para fazeer o projeto funcionar
+There is also another part of the file that refers to the command shortcut in the terminal to use when necessary to make the project work
 
 ```json
 "scripts": {
@@ -547,9 +547,9 @@ tambem existe outra parte do arquivo que se refere a atalhor de comandos no term
   },
 ```
 
-OBS:. mais acima mostrei como vc pode usar para fazer cada parte do script funcionar no terminal de uma olha mais acima a onde fala sobre **_Comandos para Estruturacao Basica do Projeto no Terminal_**
+NOTE:. Above I showed how you can use it to make each part of the script work in the terminal, take a look above where it talks about **_Commands for Basic Project Structuring in the Terminal_**
 
-ja nessa outra partee aqui estao as versoes utilizadas tanto da bibliotecas locais do projeto mais de dependencias de desenvolvimento inclusas para que o projeto rode perfeitamente na maquina.
+In this other part, here are the versions used of both the project's local libraries and the development dependencies included so that the project runs perfectly on the machine.
 
 ```json
 "devDependencies": {
@@ -570,7 +570,7 @@ ja nessa outra partee aqui estao as versoes utilizadas tanto da bibliotecas loca
   }
 ```
 
-## Expliando o que é um Migration no **_knex.js_** ??
+## Explaining what a Migration is in **knex.js**??
 
 <div style="display: inline_block"align="center" >
   <img align="center" alt="HTML5"  width="120" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/knexjs/knexjs-original.svg">
@@ -578,49 +578,49 @@ ja nessa outra partee aqui estao as versoes utilizadas tanto da bibliotecas loca
 
 <br>
 
-Uma migração em um projeto com Knex é um conceito usado para gerenciar e versionar o esquema do banco, ou seja, a modificacao de estrutura do banco de dados, de forma controlada e automatizada.
+A migration in a Knex project is a concept used to manage and version the database schema, that is, modifying the database structure, in a controlled and automated way.
 
-### Controle de Versão do Banco de Dados:
+### Database Version Control:
 
-- As migrações permitem que você versione o esquema do banco de dados,
+- Migrations allow you to version the database schema,
 
-- o que significa que você pode acompanhar as alterações no esquema ao longo do tempo,
+- meaning you can track changes to the schema over time,
 
-- permitindo que você reverta para versões anteriores se necessário.
+- allowing you to roll back to previous versions if necessary.
 
-### Alterações no Esquema:
+### Schema Changes:
 
-- As migrações podem conter alterações no esquema do banco de dados, como criar, alterar ou excluir tabelas, adicionar ou remover colunas, definir chaves estrangeiras, criar índices, entre outras operações.
+- Migrations may contain changes to the database schema, such as creating, altering or deleting tables, adding or removing columns, defining foreign keys, creating indexes, among other operations.
 
-### Arquivos de Migração:
+### Migration Files:
 
-- Cada migração é representada por um arquivo no sistema de arquivos do seu projeto.
+- Each migration is represented by a file in your project's file system.
 
-- Esse arquivo contém as instruções SQL ou métodos JavaScript necessários para realizar as alterações desejadas no esquema do banco de dados.
+- This file contains the SQL statements or JavaScript methods required to make the desired changes to the database schema.
 
-### Execução Sequencial:
+### Sequential Execution:
 
-- As migrações são executadas em ordem sequencial, garantindo que as alterações no esquema sejam aplicadas na ordem correta.
+- Migrations are performed in sequential order, ensuring that schema changes are applied in the correct order.
 
-- Isso é fundamental para evitar conflitos e garantir a consistência do banco de dados.
+- This is essential to avoid conflicts and ensure database consistency.
 
 ### Rollback:
 
-- Além de aplicar migrações para atualizar o esquema do banco de dados,
+- In addition to applying migrations to update the database schema,
 
-- o Knex também oferece a capacidade de reverter ou desfazer migrações,
+- Knex also offers the ability to revert or undo migrations,
 
-- o que permite reverter para um estado anterior do esquema do banco de dados se necessário.
+- which allows you to revert to a previous state of the database schema if necessary.
 
-### Gerenciamento Automático de Esquema:
+### Automatic Schema Management:
 
-- As migrações podem ser aplicadas e revertidas de forma automática por meio de comandos específicos fornecidos pelo Knex CLI (Command Line Interface),
+- Migrations can be applied and rolled back automatically using specific commands provided by the Knex CLI (Command Line Interface),
 
-- facilitando o gerenciamento e a manutenção do esquema do banco de dados ao longo do ciclo de vida do projeto.
+- facilitating the management and maintenance of the database schema throughout the project lifecycle.
 
-### Expliando o **_exports.up_** e tambem **_exports.down_**
+### Explaining **_exports.up_** and also **_exports.down_**
 
-No contexto do Knex e das migrações de banco de dados, **_exports.up_** e **_exports.down_** são funções utilizadas para definir as operações de migração que serão executadas quando você aplicar **_(up)_** ou reverter **_(down)_** uma migração.
+In the context of Knex and database migrations, **_exports.up_** and **_exports.down_** are functions used to define the migration operations that will be performed when you apply **_(up)_* * or reverse **_(down)_** a migration.
 
 ```javascript
 exports.up = function (knex) {};
@@ -630,11 +630,11 @@ exports.down = function (knex) {};
 
 ### Exports.up:
 
-- Esta função define as operações que serão realizadas quando você aplicar a migração. Ela é responsável por adicionar ou modificar a estrutura do banco de dados de acordo com as alterações definidas no script de migração.
+- This function defines the operations that will be performed when you apply the migration. It is responsible for adding or modifying the database structure according to the changes defined in the migration script.
 
-### Por exemplo
+### For example
 
-- você pode usar o método knex.schema.createTable para criar uma nova tabela, adicionar colunas a uma tabela existente ou fazer outras alterações no esquema do banco de dados.
+- You can use the knex.schema.createTable method to create a new table, add columns to an existing table, or make other changes to the database schema.
 
 ```javascript
 exports.up = function (knex) {
@@ -649,11 +649,11 @@ exports.up = function (knex) {
 
 ### exports.down:
 
-- Esta função define as operações que serão realizadas quando você reverter a migração. Ela é responsável por desfazer as alterações feitas pela migração up, restaurando o banco de dados ao seu estado anterior.
+- This function defines the operations that will be performed when you reverse the migration. It is responsible for undoing the changes made by the up migration, restoring the database to its previous state.
 
-### Por exemplo
+### For example
 
-- você pode usar o método knex.schema.dropTable para excluir uma tabela criada na migração up.
+- you can use the knex.schema.dropTable method to delete a table created in the up migration.
 
 ```javascript
 exports.down = function (knex) {
@@ -661,19 +661,19 @@ exports.down = function (knex) {
 };
 ```
 
-A mesma propriedade de configuração pode ser usada para habilitar a migração por transação caso a configuração comum tenha **_disableTransactions: true_**
+The same configuration property can be used to enable transactional migration if the common configuration has **_disableTransactions: true_**
 
 ```javascript
 exports.config = { transaction: true };
 ```
 
-Quando **_transaction_** é definido como **_true_** nas configurações de migração, cada migração é executada dentro de uma transação.
+When **_transaction_** is set to **_true_** in migration settings, each migration is performed within a transaction.
 
-Isso garante que, se ocorrer um erro durante a execução de uma migração, o Knex reverta automaticamente todas as alterações feitas por essa migração, mantendo o banco de dados em um estado consistente.
+This ensures that if an error occurs while running a migration, Knex automatically rolls back all changes made by that migration, keeping the database in a consistent state.
 
-### Em Resumo, As migrações são usadas para garantir que as alterações no esquema do banco de dados sejam aplicadas de forma controlada e reversível, permitindo que você mantenha um histórico das alterações feitas ao longo do tempo e que possa compartilhar e reproduzir essas alterações em diferentes ambientes de desenvolvimento e produção.
+### In Summary, Migrations are used to ensure that changes to the database schema are applied in a controlled and reversible manner, allowing you to maintain a history of changes made over time and to share and replay those changes in different development and production environments.
 
-## Arquivo **_knex.d.ts_** Explicacao:
+## File **_knex.d.ts_** Explanation:
 
 <div style="display: inline_block"align="center" >
   <img align="center" alt="HTML5"  width="120" src="./icons/typescript-def-64.png">
@@ -681,13 +681,13 @@ Isso garante que, se ocorrer um erro durante a execução de uma migração, o K
 
 <br>
 
-O arquivo **_knex.d.ts_** é um arquivo de definição de tipo para o **_Knex.js_**
+The **_knex.d.ts_** file is a type definition file for **_Knex.js_**
 
-uma biblioteca de construção de consultas e outros comandos SQL para Node.js.
+a library for building queries and other SQL commands for Node.js.
 
-Esse arquivo geralmente contém declarações de tipos TypeScript que ajudam o compilador a entender a estrutura e os tipos de objetos usados ​​pelo Knex.js.
+This file typically contains TypeScript type declarations that help the compiler understand the structure and types of objects used by Knex.js.
 
-Por exemplo:.
+For example:.
 
 ```typescript
 import { Knex } from "knex";
@@ -705,11 +705,11 @@ declare module "knex/types/tables" {
 }
 ```
 
-### Ao usar o Knex.js com TypeScript, é comum encontrar um arquivo knex.d.ts que fornece essas definições de tipo para que o TypeScript possa fazer inferências de tipo corretamente durante o desenvolvimento.
+### When using Knex.js with TypeScript, it is common to find a knex.d.ts file that provides these type definitions so that TypeScript can make type inferences correctly during development.
 
-### Isso ajuda a evitar erros e oferece um ambiente de desenvolvimento mais produtivo.
+### This helps prevent errors and provides a more productive development environment.
 
-## Arquivo **_.eslintrc.json_** Explicacao:
+## File **_.eslintrc.json_** Explanation:
 
 <div style="display: inline_block"align="center" >
   <img align="center" alt="HTML5"  width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/eslint/eslint-original.svg">
@@ -717,13 +717,13 @@ declare module "knex/types/tables" {
 
 <br>
 
-O arquivo .eslintrc.json é um arquivo de configuração para o ESLint
+The .eslintrc.json file is a configuration file for ESLint
 
-uma ferramenta de análise estática de código para identificar problemas no código JavaScript.
+a static code analysis tool for identifying issues in JavaScript code.
 
-Este arquivo define as regras e configurações que o ESLint usará ao analisar o código-fonte do seu projeto.
+This file defines the rules and settings that ESLint will use when analyzing your project's source code.
 
-trazendo Exemplo de codigo
+bringing code example
 
 ```json
 {
@@ -736,17 +736,17 @@ trazendo Exemplo de codigo
 }
 ```
 
-- A chave "extends" especifica que estamos estendendo as configurações recomendadas do ESLint, que são um conjunto padrão de regras.
+- The "extends" key specifies that we are extending ESLint's recommended settings, which are a standard set of rules.
 
-- A chave "rules" permite que você defina regras específicas.
+- The "rules" key allows you to define specific rules.
 
-- Por exemplo, estamos configurando a regra semi para exigir ponto e vírgula no final das linhas
+- For example, we are configuring the semi rule to require semicolons at the end of lines
 
-- a regra indent para exigir indentação de 2 espaços e a regra quotes para exigir o uso de aspas simples para strings
+- the indent rule to require 2-space indentation and the quotes rule to require the use of single quotes for strings
 
-### Em resumo, Ele permite definir um padrão de codificação consistente e pode ajudar a identificar erros comuns ou problemas de estilo no seu código JavaScript.
+### In summary, It allows you to define a consistent coding standard and can help identify common errors or style issues in your JavaScript code.
 
-## Arquivo **_.gitignore_** Explicacao:
+## File **_.gitignore_** Explanation:
 
 <div style="display: inline_block"align="center" >
   <img align="center" alt="HTML5"  width="80" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg">
@@ -754,9 +754,9 @@ trazendo Exemplo de codigo
 
 <br>
 
-é um arquivo de configuração usado para especificar quais arquivos e diretórios o Git deve ignorar ao rastrear as alterações em um repositório Git.
+is a configuration file used to specify which files and directories Git should ignore when tracking changes to a Git repository.
 
-Por exemplo:.
+For example:.
 
 ```.gitignore
 # Arquivos de compilação
@@ -779,9 +779,9 @@ logs/
 *.log
 ```
 
-### Isso significa que os arquivos e diretórios listados no .gitignore não serão incluídos nas operações de git add e git commit, tornando-os essencialmente invisíveis para o Git.
+### This means that files and directories listed in .gitignore will not be included in git add and git commit operations, making them essentially invisible to Git.
 
-## Explicando a Biblioteca **_Zod_** usada no Projeto
+## Explaining the **_Zod_** Library used in the Project
 
 <div style="display: inline_block"align="center" >
   <img align="center" alt="HTML5"  width="120" src="./icons/zod-logo-B57E684330-seeklogo.com.png">
@@ -789,17 +789,17 @@ logs/
 
 <br>
 
-é uma biblioteca de validação de esquemas em TypeScript que oferece uma maneira simples e poderosa de definir e validar objetos de dados de acordo com um esquema predefinido.
+is a schema validation library in TypeScript that provides a simple and powerful way to define and validate data objects according to a predefined schema.
 
-Ela é útil para garantir que os dados recebidos em um aplicativo atendam a determinadas expectativas e requisitos antes de serem processados ou armazenados.
+It is useful for ensuring that data received into an application meets certain expectations and requirements before it is processed or stored.
 
-### Tipos de Dados:
+### Data Types:
 
-- Zod oferece uma variedade de tipos de dados incorporados, como **_string_**, **_number_**, **_boolean_**, **_array_**, **_object_**, etc.
+- Zod offers a variety of built-in data types such as **_string_**, **_number_**, **_boolean_**, **_array_**, **_object_**, etc.
 
-- Além disso, ele permite definir tipos de **_dados personalizados_** e compostos, como tipos de **_dados aninhados_**, **_uniões de tipos_**, **_arrays de tipos específicos_**,
+- Additionally, it allows you to define **_custom data_** and compound types, such as **_nested data types_**, **_unions of types_**, **_arrays of specific types_**,
 
-Trazendo um exemplo simples para isso para que possa entender melhor:.
+Bringing a simple example to this so you can understand better:.
 
 ```typescript
 import { z } from "zod";
@@ -826,9 +826,9 @@ try {
 }
 ```
 
-### No geral, o Zod é uma ferramenta valiosa para garantir a integridade e a consistência dos dados em aplicativos TypeScript, ajudando a evitar bugs relacionados a tipos de dados inválidos e simplificando a validação de entrada de dados.
+### Overall, Zod is a valuable tool for ensuring data integrity and consistency in TypeScript applications, helping to avoid bugs related to invalid data types and simplifying data entry validation.
 
-## Explicando a Biblioteca **_dotenv_** que estara sendo usanda no projeto
+## Explaining the **_dotenv_** Library that will be used in the project
 
 <div style="display: inline_block"align="center" >
   <img align="center" alt="HTML5"  width="120" src="./icons/dotenv.png">
@@ -836,23 +836,23 @@ try {
 
 <br>
 
-é uma ferramenta comum em projetos Node.js que ajuda a carregar variáveis de ambiente de arquivos .env para o processo de ambiente do Node.js.
+is a common tool in Node.js projects that helps load environment variables from .env files into the Node.js environment process.
 
-### Variáveis de Ambiente:
+### Environment variables:
 
-- Variáveis de ambiente são variáveis externas ao código-fonte que podem influenciar o comportamento do programa.
+- Environment variables are variables external to the source code that can influence the behavior of the program.
 
-- Elas são frequentemente usadas para configurar aplicativos de forma flexível sem a necessidade de modificar o código fonte.
+- They are often used to flexibly configure applications without the need to modify the source code.
 
-- Exemplos comuns de variáveis de ambiente incluem configurações de banco de dados, chaves de API, URLs de serviços externos, entre outros.
+- Common examples of environment variables include database settings, API keys, external service URLs, and more.
 
-### Arquivo .env:
+### .env file:
 
-- O arquivo .env é um arquivo de texto simples que contém pares de chave-valor das variáveis de ambiente.
+- The .env file is a simple text file that contains key-value pairs of environment variables.
 
-- Cada linha no arquivo .env segue o formato CHAVE=VALOR.
+- Each line in the .env file follows the format KEY=VALUE.
 
-Por exemplo:
+For example:
 
 ```json
 DB_HOST=localhost
@@ -860,9 +860,9 @@ DB_USER=myuser
 DB_PASSWORD=mypassword
 ```
 
-### Em resumo, a biblioteca dotenv é uma ferramenta valiosa para gerenciar variáveis de ambiente em aplicativos Node.js, facilitando a configuração e garantindo a segurança das informações confidenciais do seu projeto.
+### In summary, the dotenv library is a valuable tool for managing environment variables in Node.js applications, facilitating configuration and ensuring the security of your project's confidential information.
 
-## Usando a Extensão do Postman no Vs.code
+## Using the Postman Extension in Vs.code
 
 <div style="display: inline_block"align="center" >
   <img align="center" alt="HTML5"  width="120" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postman/postman-original.svg">
@@ -870,9 +870,9 @@ DB_PASSWORD=mypassword
 
 <br>
 
-Esta extensão permite que você envie solicitações HTTP diretamente do seu editor de código e visualize as respostas diretamente no VS Code, o que pode ser útil durante o desenvolvimento de APIs e serviços da web.
+This extension allows you to send HTTP requests directly from your code editor and view the responses directly in VS Code, which can be useful when developing APIs and web services.
 
-Com a extensão "REST Client", você pode criar arquivos de texto com extensão .http ou .rest e escrever solicitações HTTP dentro deles usando uma sintaxe semelhante à do Postman. Por exemplo:
+With the "REST Client" extension, you can create text files with .http or .rest extension and write HTTP requests inside them using a syntax similar to Postman. For example:
 
 <div style="display: inline_block"align="center" >
   <img align="center" alt="HTML5" src="./icons/postmanFuncionando.png">
@@ -880,9 +880,9 @@ Com a extensão "REST Client", você pode criar arquivos de texto com extensão 
 
 <br>
 
-A resposta será exibida diretamente no VS Code, permitindo que você visualize e analise as respostas de suas solicitações HTTP sem precisar alternar entre diferentes aplicativos.
+The response will be displayed directly in VS Code, allowing you to view and analyze the responses to your HTTP requests without having to switch between different applications.
 
-# Usando o FrameWork de Teste Automatizados ***ViteST***
+# Using ***ViteST*** Automated Testing FrameWork
 
 <div style="display: inline_block" align="center">
   <img align="center" alt="knex" width="120" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vitest/vitest-original.svg">
@@ -890,21 +890,21 @@ A resposta será exibida diretamente no VS Code, permitindo que você visualize 
 
 <br>
 
-é usado para instalar pacotes relacionados a testes em um projeto Node.js.
+is used to install test-related packages into a Node.js project.
 
-A opção -D indica que o pacote será instalado como uma dependência de desenvolvimento, o que significa que ele será incluído apenas no ambiente de desenvolvimento e não será necessário em produção.
+The -D option indicates that the package will be installed as a development dependency, which means that it will only be included in the development environment and will not be needed in production.
 
 ```javascript
 npm i vitest -D
 ```
 
-O comando npx vitest é usado para executar o pacote vitest temporariamente, sem a necessidade de instalá-lo globalmente ou localmente em seu projeto.
+The ***npx vitest*** command is used to run the vitest package temporarily, without the need to install it globally or locally in your project.
 
 ```javascript
 npx vitest
 ```
 
-como fica o teste automatizado quando realizado no terminal
+What does automated testing look like when performed in the terminal ?
 
 <div style="display: inline_block" align="center">
   <img align="center" alt="knex" src="./icons/teste automatizado com vitest.png">
@@ -912,7 +912,7 @@ como fica o teste automatizado quando realizado no terminal
 
 <br>
 
-adicionando no script do projeto na parte **_Package.json_** para executar via comando no terminal de maneira mais facil
+adding it to the project script in the **Package.json** part to run via command in the terminal more easily
 
 ```json
 "scripts": {
@@ -920,7 +920,7 @@ adicionando no script do projeto na parte **_Package.json_** para executar via c
 }
 ```
 
-executando ele usando o seguinte comando chamando:
+running it using the following command calling:
 
 ```javascript
 npm run test
